@@ -1,9 +1,8 @@
 package com.test.assignment.scrabble.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
+@Entity
 @Table(name = "points")
 public class Points {
 
@@ -38,5 +37,14 @@ public class Points {
 
     public void setPoints(Integer points) {
         this.points = points;
+    }
+
+    @Override
+    public String toString() {
+        return "Points{" +
+                "id=" + id +
+                ", letterGroupId=" + letterGroupId +
+                ", points=" + points +
+                "}\n";
     }
 }

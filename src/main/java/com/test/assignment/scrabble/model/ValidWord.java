@@ -2,6 +2,7 @@ package com.test.assignment.scrabble.model;
 
 import jakarta.persistence.*;
 
+@Entity
 @Table(name = "valid_words")
 public class ValidWord {
 

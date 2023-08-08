@@ -1,6 +1,7 @@
 package com.test.assignment.scrabble.controller;
 
-import com.test.assignment.scrabble.service.WordService;
+import com.test.assignment.scrabble.service.ScrabbleService;
+import com.test.assignment.scrabble.to.ResultResponseTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,10 +11,11 @@ import org.springframework.web.bind.annotation.*;
 public class WordController {
 
     @Autowired
-    private WordService wordService;
+    private ScrabbleService scrabbleService;
 
-    @PostMapping(value = "saveValidWord")
-    public ResponseEntity<String> saveValidWord(@RequestParam(value = "word") String word) {
-        return ResponseEntity.ok(wordService.saveValidWord(word));
+    @GetMapping(value = "submit")
+    public ResponseEntity<ResultResponseTO> submitWord(@RequestParam String word) {
+        return ResponseEntity.ok(scrabbleService.submitWord(word));
     }
+
 }
