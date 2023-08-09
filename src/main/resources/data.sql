@@ -42,35 +42,35 @@ INSERT INTO letter_group VALUES (7, 1, 'R');
 INSERT INTO letter_group VALUES (8, 1, 'S');
 INSERT INTO letter_group VALUES (9, 1, 'T');
 INSERT INTO letter_group VALUES (10, 1, 'U');
-INSERT INTO poINTs VALUES (1, 1, 1);
+INSERT INTO points VALUES (1, 1, 1);
 
 INSERT INTO letter_group VALUES (11, 2, 'D');
 INSERT INTO letter_group VALUES (12, 2, 'G');
-INSERT INTO poINTs VALUES (2, 2, 2);
+INSERT INTO points VALUES (2, 2, 2);
 
 INSERT INTO letter_group VALUES (13, 3, 'B');
 INSERT INTO letter_group VALUES (14, 3, 'C');
 INSERT INTO letter_group VALUES (15, 3, 'M');
 INSERT INTO letter_group VALUES (16, 3, 'P');
-INSERT INTO poINTs VALUES (3, 3, 3);
+INSERT INTO points VALUES (3, 3, 3);
 
 INSERT INTO letter_group VALUES (17, 4, 'F');
 INSERT INTO letter_group VALUES (18, 4, 'H');
 INSERT INTO letter_group VALUES (19, 4, 'V');
 INSERT INTO letter_group VALUES (20, 4, 'W');
 INSERT INTO letter_group VALUES (21, 4, 'Y');
-INSERT INTO poINTs VALUES (4, 4, 4);
+INSERT INTO points VALUES (4, 4, 4);
 
 INSERT INTO letter_group VALUES (22, 5, 'K');
-INSERT INTO poINTs VALUES (5, 5, 5);
+INSERT INTO points VALUES (5, 5, 5);
 
 INSERT INTO letter_group VALUES (23, 6, 'J');
 INSERT INTO letter_group VALUES (24, 6, 'X');
-INSERT INTO poINTs VALUES (6, 6, 8);
+INSERT INTO points VALUES (6, 6, 8);
 
 INSERT INTO letter_group VALUES (25, 7, 'Q');
 INSERT INTO letter_group VALUES (26, 7, 'Z');
-INSERT INTO poINTs VALUES (7, 7, 10);
+INSERT INTO points VALUES (7, 7, 10);
 
 
 INSERT INTO valid_words VALUES (1, 'beaver');
