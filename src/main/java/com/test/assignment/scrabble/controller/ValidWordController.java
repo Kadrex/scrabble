@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequestMapping("api/validWords")
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class ValidWordController {
@@ -16,12 +17,12 @@ public class ValidWordController {
     @Autowired
     private ValidWordService validWordService;
 
-    @GetMapping(value = "listValidWords")
+    @GetMapping(value = "/list")
     public ResponseEntity<List<ValidWord>> listValid() {
         return ResponseEntity.ok(validWordService.listAll());
     }
 
-    @PostMapping(value = "saveValidWord")
+    @PostMapping(value = "/save")
     public ResponseEntity<ResultResponseTO> saveValidWord(@RequestParam(value = "word") String word) {
         return ResponseEntity.ok(validWordService.saveValidWord(word));
     }
