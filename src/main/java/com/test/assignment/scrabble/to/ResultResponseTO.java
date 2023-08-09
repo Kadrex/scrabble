@@ -8,8 +8,6 @@ public class ResultResponseTO {
 
     private String message;
 
-    private String explanation;
-
     private boolean accepted;
 
     public String getWord() {
@@ -36,19 +34,21 @@ public class ResultResponseTO {
         this.message = message;
     }
 
-    public String getExplanation() {
-        return explanation;
-    }
-
-    public void setExplanation(String explanation) {
-        this.explanation = explanation;
-    }
-
     public boolean isAccepted() {
         return accepted;
     }
 
     public void setAccepted(boolean accepted) {
         this.accepted = accepted;
+    }
+
+    @Override
+    public String toString() {
+        return "ResultResponseTO{" +
+                "word='" + word + '\'' +
+                ", points=" + points +
+                ", message='" + message + '\'' +
+                ", accepted=" + accepted +
+                '}';
     }
 }
