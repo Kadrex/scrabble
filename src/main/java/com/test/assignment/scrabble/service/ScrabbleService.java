@@ -3,6 +3,8 @@ package com.test.assignment.scrabble.service;
 import com.test.assignment.scrabble.repository.ValidWordsRepository;
 import com.test.assignment.scrabble.to.PointsTO;
 import com.test.assignment.scrabble.to.ResultResponseTO;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,8 @@ import java.util.*;
 
 @Service
 public class ScrabbleService {
+
+    private static final Logger LOG = LogManager.getLogger(ScrabbleService.class);
 
     @Autowired
     private ValidWordsRepository validWordsRepository;
@@ -45,6 +49,8 @@ public class ScrabbleService {
         result.setPoints(pointsForWord);
         result.setWord(word);
         result.setAccepted(true);
+
+        LOG.info(explanation.toString());
 
         return result;
     }
