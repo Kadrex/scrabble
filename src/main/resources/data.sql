@@ -1,77 +1,76 @@
 CREATE TABLE group_id (
-    id int not null primary key
+    id INT NOT NULL PRIMARY KEY
 );
 
 CREATE TABLE letter_group (
-                              id int not null,
-                              group_id int not null,
-                              letter varchar(1) not null unique,
-                              primary key (id),
-                              foreign key (group_id) references group_id(id)
+    id INT NOT NULL,
+    group_id INT NOT NULL,
+    letter VARCHAR(1) NOT NULL UNIQUE,
+    PRIMARY KEY (id),
+    FOREIGN KEY (group_id) REFERENCES group_id(id)
 );
 
 CREATE TABLE points (
-                        id int not null,
-                        letter_group_id int not null,
-                        points int not null,
-                        primary key (id),
-                        foreign key (letter_group_id) references group_id(id)
+    id INT NOT NULL,
+    letter_group_id INT NOT NULL,
+    points INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (letter_group_id) REFERENCES group_id(id)
 );
 
 CREATE TABLE valid_words (
-                             id int not null,
-                             word varchar(255) not null,
-                             primary key (id)
+    id INT NOT NULL AUTO_INCREMENT,
+    word VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
 );
 
+INSERT INTO group_id VALUES (1);
+INSERT INTO group_id VALUES (2);
+INSERT INTO group_id VALUES (3);
+INSERT INTO group_id VALUES (4);
+INSERT INTO group_id VALUES (5);
+INSERT INTO group_id VALUES (6);
+INSERT INTO group_id VALUES (7);
 
-INSERT INTO group_id values (1);
-INSERT INTO group_id values (2);
-INSERT INTO group_id values (3);
-INSERT INTO group_id values (4);
-INSERT INTO group_id values (5);
-INSERT INTO group_id values (6);
-INSERT INTO group_id values (7);
+INSERT INTO letter_group VALUES (1, 1, 'A');
+INSERT INTO letter_group VALUES (2, 1, 'E');
+INSERT INTO letter_group VALUES (3, 1, 'I');
+INSERT INTO letter_group VALUES (4, 1, 'L');
+INSERT INTO letter_group VALUES (5, 1, 'N');
+INSERT INTO letter_group VALUES (6, 1, 'O');
+INSERT INTO letter_group VALUES (7, 1, 'R');
+INSERT INTO letter_group VALUES (8, 1, 'S');
+INSERT INTO letter_group VALUES (9, 1, 'T');
+INSERT INTO letter_group VALUES (10, 1, 'U');
+INSERT INTO poINTs VALUES (1, 1, 1);
 
-INSERT INTO letter_group values (1, 1, 'A');
-INSERT INTO letter_group values (2, 1, 'E');
-INSERT INTO letter_group values (3, 1, 'I');
-INSERT INTO letter_group values (4, 1, 'L');
-INSERT INTO letter_group values (5, 1, 'N');
-INSERT INTO letter_group values (6, 1, 'O');
-INSERT INTO letter_group values (7, 1, 'R');
-INSERT INTO letter_group values (8, 1, 'S');
-INSERT INTO letter_group values (9, 1, 'T');
-INSERT INTO letter_group values (10, 1, 'U');
-INSERT INTO points values (1, 1, 1);
+INSERT INTO letter_group VALUES (11, 2, 'D');
+INSERT INTO letter_group VALUES (12, 2, 'G');
+INSERT INTO poINTs VALUES (2, 2, 2);
 
-INSERT INTO letter_group values (11, 2, 'D');
-INSERT INTO letter_group values (12, 2, 'G');
-INSERT INTO points values (2, 2, 2);
+INSERT INTO letter_group VALUES (13, 3, 'B');
+INSERT INTO letter_group VALUES (14, 3, 'C');
+INSERT INTO letter_group VALUES (15, 3, 'M');
+INSERT INTO letter_group VALUES (16, 3, 'P');
+INSERT INTO poINTs VALUES (3, 3, 3);
 
-INSERT INTO letter_group values (13, 3, 'B');
-INSERT INTO letter_group values (14, 3, 'C');
-INSERT INTO letter_group values (15, 3, 'M');
-INSERT INTO letter_group values (16, 3, 'P');
-INSERT INTO points values (3, 3, 3);
+INSERT INTO letter_group VALUES (17, 4, 'F');
+INSERT INTO letter_group VALUES (18, 4, 'H');
+INSERT INTO letter_group VALUES (19, 4, 'V');
+INSERT INTO letter_group VALUES (20, 4, 'W');
+INSERT INTO letter_group VALUES (21, 4, 'Y');
+INSERT INTO poINTs VALUES (4, 4, 4);
 
-INSERT INTO letter_group values (17, 4, 'F');
-INSERT INTO letter_group values (18, 4, 'H');
-INSERT INTO letter_group values (19, 4, 'V');
-INSERT INTO letter_group values (20, 4, 'W');
-INSERT INTO letter_group values (21, 4, 'Y');
-INSERT INTO points values (4, 4, 4);
+INSERT INTO letter_group VALUES (22, 5, 'K');
+INSERT INTO poINTs VALUES (5, 5, 5);
 
-INSERT INTO letter_group values (22, 5, 'K');
-INSERT INTO points values (5, 5, 5);
+INSERT INTO letter_group VALUES (23, 6, 'J');
+INSERT INTO letter_group VALUES (24, 6, 'X');
+INSERT INTO poINTs VALUES (6, 6, 8);
 
-INSERT INTO letter_group values (23, 6, 'J');
-INSERT INTO letter_group values (24, 6, 'X');
-INSERT INTO points values (6, 6, 8);
-
-INSERT INTO letter_group values (25, 7, 'Q');
-INSERT INTO letter_group values (26, 7, 'Z');
-INSERT INTO points values (7, 7, 10);
+INSERT INTO letter_group VALUES (25, 7, 'Q');
+INSERT INTO letter_group VALUES (26, 7, 'Z');
+INSERT INTO poINTs VALUES (7, 7, 10);
 
 
 INSERT INTO valid_words VALUES (1, 'beaver');
