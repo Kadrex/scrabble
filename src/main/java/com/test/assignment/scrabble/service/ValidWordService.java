@@ -46,4 +46,8 @@ public class ValidWordService {
         return invalidLetters;
     }
 
+    public List<ValidWord> listAll() {
+        return validWordsRepository.findAllByOrderByWord();
+    }
+
 }

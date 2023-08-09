@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface ValidWordsRepository extends JpaRepository<ValidWord, Long> {
 
-    List<ValidWord> findAll();
+    List<ValidWord> findAllByOrderByWord();
 
     boolean existsByWord(String word);
 
