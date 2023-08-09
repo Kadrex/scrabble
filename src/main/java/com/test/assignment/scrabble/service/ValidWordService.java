@@ -3,6 +3,7 @@ package com.test.assignment.scrabble.service;
 import com.test.assignment.scrabble.model.ValidWord;
 import com.test.assignment.scrabble.repository.LetterGroupRepository;
 import com.test.assignment.scrabble.repository.ValidWordsRepository;
+import com.test.assignment.scrabble.to.ResultResponseTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,19 +21,19 @@ public class ValidWordService {
     @Autowired
     private LetterGroupRepository letterGroupRepository;
 
-    public String saveValidWord(String word) {
+    public ResultResponseTO saveValidWord(String word) {
         if (validWordsRepository.existsByWord(word)) {
-            return "exists";
+            return responseOfError(word, "This word is already listed as valid.");
         }
         List<String> invalidLetters = getInvalidLetters(word);
         if (invalidLetters.size() > 0) {
             String message = invalidLetters.size() == 1 ? "letter" : "letters";
-            return "Contains invalid " + message + ": " + String.join(", ", invalidLetters);
+            return responseOfError(word, "Contains invalid " + message + ": " + String.join(", ", invalidLetters));
         }
         ValidWord validWordEntity = new ValidWord();
         validWordEntity.setWord(word);
         validWordsRepository.save(validWordEntity);
-        return "grapes";
+        return responseOfSuccess(word, "Word " + word + " listed as valid.");
     }
 
     private List<String> getInvalidLetters(String word) {
@@ -48,6 +49,22 @@ public class ValidWordService {
 
     public List<ValidWord> listAll() {
         return validWordsRepository.findAllByOrderByWord();
+    }
+
+    private ResultResponseTO responseOfError(String word, String message) {
+        ResultResponseTO response = new ResultResponseTO();
+        response.setWord(word);
+        response.setMessage(message);
+        response.setAccepted(false);
+        return response;
+    }
+
+    private ResultResponseTO responseOfSuccess(String word, String message) {
+        ResultResponseTO response = new ResultResponseTO();
+        response.setWord(word);
+        response.setMessage(message);
+        response.setAccepted(true);
+        return response;
     }
 
 }

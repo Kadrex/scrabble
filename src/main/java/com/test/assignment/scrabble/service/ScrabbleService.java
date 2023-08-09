@@ -1,7 +1,5 @@
 package com.test.assignment.scrabble.service;
 
-import com.test.assignment.scrabble.repository.LetterGroupRepository;
-import com.test.assignment.scrabble.repository.PointsRepository;
 import com.test.assignment.scrabble.repository.ValidWordsRepository;
 import com.test.assignment.scrabble.to.PointsTO;
 import com.test.assignment.scrabble.to.ResultResponseTO;
@@ -21,7 +19,7 @@ public class ScrabbleService {
 
     public ResultResponseTO submitWord(String word) {
         if (!validWordsRepository.existsByWord(word)) {
-            return responseOfError(word, "Not a valid word.");
+            return responseOfError(word);
         }
         return calculatePoints(word);
     }
@@ -55,11 +53,12 @@ public class ScrabbleService {
         return points.stream().filter(p -> p.getLetters().contains(letter)).findFirst().get().getPoints();
     }
 
-    private ResultResponseTO responseOfError(String word, String message) {
+    private ResultResponseTO responseOfError(String word) {
         ResultResponseTO response = new ResultResponseTO();
         response.setWord(word);
-        response.setMessage(message);
+        response.setMessage("Not a valid word.");
         response.setAccepted(false);
+        response.setPoints(-10);
         return response;
     }
 
