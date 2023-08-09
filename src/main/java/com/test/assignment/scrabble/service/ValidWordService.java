@@ -28,7 +28,7 @@ public class ValidWordService {
         List<String> invalidLetters = getInvalidLetters(word);
         if (invalidLetters.size() > 0) {
             String message = invalidLetters.size() == 1 ? "letter" : "letters";
-            return responseOfError(word, "Contains invalid " + message + ": " + String.join(", ", invalidLetters));
+            return responseOfError(word, "Contains invalid " + message + ": " + String.join(", ", invalidLetters + "."));
         }
         ValidWord validWordEntity = new ValidWord();
         validWordEntity.setWord(word);
@@ -54,6 +54,7 @@ public class ValidWordService {
     private ResultResponseTO responseOfError(String word, String message) {
         ResultResponseTO response = new ResultResponseTO();
         response.setWord(word);
+        response.setPoints(-10);
         response.setMessage(message);
         response.setAccepted(false);
         return response;
