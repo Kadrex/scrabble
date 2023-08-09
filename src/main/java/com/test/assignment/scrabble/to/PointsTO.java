@@ -1,6 +1,7 @@
 package com.test.assignment.scrabble.to;
 
 import java.util.List;
+import java.util.Objects;
 
 public class PointsTO {
 
@@ -25,10 +26,16 @@ public class PointsTO {
     }
 
     @Override
-    public String toString() {
-        return "PointsTO{" +
-                "letters=" + letters +
-                ", points=" + points +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PointsTO pointsTO = (PointsTO) o;
+        return Objects.equals(letters, pointsTO.letters) && Objects.equals(points, pointsTO.points);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(letters, points);
+    }
+
 }

@@ -42,13 +42,4 @@ public class ResultResponseTO {
         this.accepted = accepted;
     }
 
-    @Override
-    public String toString() {
-        return "ResultResponseTO{" +
-                "word='" + word + '\'' +
-                ", points=" + points +
-                ", message='" + message + '\'' +
-                ", accepted=" + accepted +
-                '}';
-    }
 }
