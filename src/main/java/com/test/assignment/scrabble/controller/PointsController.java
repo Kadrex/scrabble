@@ -14,12 +14,11 @@ import java.util.List;
 
 @RequestMapping("api/points")
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "${frontend.url}")
 public class PointsController {
 
     @Autowired
     private PointsService pointsService;
-
 
     @GetMapping(path = "/guide")
     public ResponseEntity<List<PointsTO>> getPoints() {

@@ -11,7 +11,7 @@ import java.util.List;
 
 @RequestMapping("api/validWords")
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "${frontend.url}")
 public class ValidWordController {
 
     @Autowired
